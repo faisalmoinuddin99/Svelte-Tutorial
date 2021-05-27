@@ -1,10 +1,21 @@
 <script>
-  export let name;
+  let name = "naruto";
+  let beltColor = "black";
+
+  let handleClick = () => {
+    if (beltColor == "black") {
+      beltColor = "yellow";
+    } else {
+      beltColor = "black";
+    }
+  };
 </script>
 
 <main>
   <h1>Hello {name}!</h1>
-  <p>Hi faisal, welcome to be a family of Svelte Ninja...</p>
+  <p>{beltColor} belt</p>
+
+  <button on:click={handleClick}>update belt color</button>
 </main>
 
 <style>
