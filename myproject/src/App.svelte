@@ -1,6 +1,19 @@
 <script>
   let name = "naruto";
   let beltColor = "black";
+  let first_name = "Jimmy";
+  let last_name = "sharma";
+
+  // Reactive Value
+  $: full_name = `${first_name} ${last_name}`;
+
+  // Reactive Statement
+  $: console.log(beltColor);
+
+  $: {
+    console.log(beltColor);
+    console.log(full_name);
+  }
 
   let handleClick = () => {
     if (beltColor == "black") {
@@ -17,15 +30,17 @@
 
 <main>
   <h1>Hello {name}!</h1>
-  <p style="color:{beltColor}">{beltColor} belt</p>
+  <p>{full_name} - {beltColor} belt</p>
 
   <button on:click={handleClick}>update belt color</button>
 
   <!-- one-way data binding -->
   <input type="text" on:input={handleInput} value={beltColor} />
 
-  <!-- two way data binding -->
-  <input type="text" bind:value={beltColor} />
+  <hr />
+
+  <input type="text" bind:value={first_name} />
+  <input type="text" bind:value={last_name} />
 </main>
 
 <style>
