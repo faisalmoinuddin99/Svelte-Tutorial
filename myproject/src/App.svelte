@@ -9,13 +9,23 @@
       beltColor = "black";
     }
   };
+
+  let handleInput = (e) => {
+    beltColor = e.target.value;
+  };
 </script>
 
 <main>
   <h1>Hello {name}!</h1>
-  <p>{beltColor} belt</p>
+  <p style="color:{beltColor}">{beltColor} belt</p>
 
   <button on:click={handleClick}>update belt color</button>
+
+  <!-- one-way data binding -->
+  <input type="text" on:input={handleInput} value={beltColor} />
+
+  <!-- two way data binding -->
+  <input type="text" bind:value={beltColor} />
 </main>
 
 <style>
