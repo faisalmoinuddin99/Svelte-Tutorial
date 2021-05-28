@@ -1,9 +1,12 @@
 <script>
-  let peope = [
+  let people = [
     { id: 1, name: "Naruto", age: 20, beltcolor: "black" },
     { id: 2, name: "Saske", age: 21, beltcolor: "orange" },
     { id: 3, name: "Sakura", age: 20, beltcolor: "pink" },
   ];
+  const handleClick = (id) => {
+    people = people.filter((ninja) => ninja.id != id);
+  };
 </script>
 
 <main>
@@ -14,15 +17,28 @@
         <th scope="col">NAME</th>
         <th scope="col">AGE</th>
         <th scope="col">BELT-COLOR</th>
+        <th scope="col">CATEGORY</th>
       </tr>
     </thead>
     <tbody>
-      {#each peope as ninja (ninja.id)}
+      {#each people as ninja (ninja.id)}
         <tr>
           <th scope="row">{ninja.id}</th>
           <td>{ninja.name}</td>
           <td>{ninja.age}</td>
           <td>{ninja.beltcolor}</td>
+          <td>
+            {#if ninja.beltcolor === "black"}
+              <p><strong>Master Ninja</strong></p>
+            {:else}
+              <p>N.A</p>
+            {/if}
+          </td>
+          <button
+            on:click={() => {
+              handleClick(ninja.id);
+            }}>Delete</button
+          >
         </tr>
       {:else}
         <p>There are no ninja to show...</p>
