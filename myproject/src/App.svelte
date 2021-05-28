@@ -1,9 +1,15 @@
 <script>
-  let peope = [
+  let people = [
     { id: 1, name: "Naruto", age: 20, beltcolor: "black" },
     { id: 2, name: "Saske", age: 21, beltcolor: "orange" },
     { id: 3, name: "Sakura", age: 20, beltcolor: "pink" },
   ];
+
+  const handleClick = (e, id) => {
+    console.log(id);
+    people = people.filter((ninjas) => ninjas.id != id);
+    console.log(e);
+  };
 </script>
 
 <main>
@@ -17,12 +23,18 @@
       </tr>
     </thead>
     <tbody>
-      {#each peope as ninja (ninja.id)}
+      {#each people as ninja (ninja.id)}
         <tr>
           <th scope="row">{ninja.id}</th>
           <td>{ninja.name}</td>
           <td>{ninja.age}</td>
           <td>{ninja.beltcolor}</td>
+          <!-- inline Event Handler -->
+          <button
+            on:click={(e) => {
+              handleClick(e, ninja.id);
+            }}>delete</button
+          >
         </tr>
       {:else}
         <p>There are no ninja to show...</p>
