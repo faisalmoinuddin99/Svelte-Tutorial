@@ -20,6 +20,7 @@
         <th scope="col">NAME</th>
         <th scope="col">AGE</th>
         <th scope="col">BELT-COLOR</th>
+        <th scope="col">CATEGORY</th>
       </tr>
     </thead>
     <tbody>
@@ -29,6 +30,13 @@
           <td>{ninja.name}</td>
           <td>{ninja.age}</td>
           <td>{ninja.beltcolor}</td>
+          <td>
+            {#if ninja.beltcolor === "black"}
+              <p><strong>MASTER NINJA</strong></p>
+            {:else}
+              <p>N.A</p>
+            {/if}
+          </td>
           <!-- inline Event Handler -->
           <button
             on:click={(e) => {
