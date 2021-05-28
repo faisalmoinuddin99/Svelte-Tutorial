@@ -3,7 +3,7 @@
 </script>
 
 <main>
-  <Modal />
+  <Modal message="Hey, I am a prop value" isPromo={true} />
   <h4>Hello faisal</h4>
 </main>
 
