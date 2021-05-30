@@ -1,7 +1,6 @@
 <script>
   export let showModal;
   export let isPromo;
-  export let message = "default";
 
   /*
   * Event Modifier: 
@@ -15,7 +14,8 @@
   <!-- Event Forwarding -->
   <div class="backdrop" class:promo={isPromo} on:click|self>
     <div class="modal">
-      <p>{message}</p>
+      <slot name="title"><!-- optional fallback --></slot>
+      <slot><!-- optional fallback --></slot>
     </div>
   </div>
 {/if}
