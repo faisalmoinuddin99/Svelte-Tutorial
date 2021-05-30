@@ -1,18 +1,18 @@
 <script>
-  let people = [
-    { id: 1, name: "Naruto", age: 20, beltcolor: "black" },
-    { id: 2, name: "Saske", age: 21, beltcolor: "orange" },
-    { id: 3, name: "Sakura", age: 20, beltcolor: "pink" },
-  ];
-  const handleClick = (id) => {
-    people = people.filter((ninja) => ninja.id != id);
+  import Modal from "./components/Modal.svelte";
+
+  let showModal = false;
+
+  let toggleModal = () => {
+    showModal = !showModal;
   };
 </script>
 
 <main>
-  <!-- svelte-ignore missing-declaration -->
-  <Modal message="Hey, I am a prop value" isPromo={true} />
-  <h4>Hello faisal</h4>
+  <!-- <Modal message="Hey, I am a prop value" isPromo={true} /> -->
+  <Modal message="I am another modal" {showModal} on:click={toggleModal} />
+  <button on:click={toggleModal}> Show Modal</button>
+  <h1>Hello world</h1>
 </main>
 
 <style>
